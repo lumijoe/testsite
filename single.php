@@ -34,7 +34,11 @@
                         ?>
                         <!-- Featured blog post-->
                         <div class="card mb-4">
-                            <a href="<?php the_permalink(); ?>"><img class="card-img-top" src="<?php echo esc_url(get_theme_file_uri('screenshot.png')); ?>" alt="..." /></a>
+                            <?php if (has_post_thumbnail()) : ?>
+                                <?php the_post_thumbnail('large'); ?>
+                            <?php else : ?>
+                                <img class="card-img-top" src="<?php echo esc_url(get_theme_file_uri('screenshot.png')); ?>" alt="..." />
+                            <?php endif; ?>
                             <div class="card-body">
                                 <div class="small text-muted"><? the_time('Y年m月d日H時'); ?></div>
                                 <h2 class="card-title"><? the_title(); ?></h2>

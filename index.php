@@ -34,14 +34,22 @@
                         ?>
                         <!-- Featured blog post-->
                         <div class="card mb-4">
-                            <a href="<?php the_permalink(); ?>"><img class="card-img-top" src="<?php echo esc_url(get_theme_file_uri('screenshot.png')); ?>" alt="..." /></a>
-                            <div class="card-body">
-                                <div class="small text-muted"><? the_time('Y年m月d日H時'); ?></div>
-                                <h2 class="card-title"><? the_title(); ?></h2>
-                                <p class="card-text"><? the_excerpt(); ?></p>
-                                <a class="btn btn-primary" href="<?php the_permalink(); ?>">Read more →</a>
+                            <a href="<?php the_permalink(); ?>">
+                                <?php if (has_post_thumbnail()) : // もしサムネの設定があれば
+                                ?>
+                                    <?php the_post_thumbnail('large'); ?>
+                                <?php else : // もしサムネがなかったら
+                                ?>
+                                    <img class="card-img-top" src="<?php echo esc_url(get_theme_file_uri('screenshot.png')); ?>" alt="..." />
+                            </a>
+                        <?php endif; ?>
+                        <div class="card-body">
+                            <div class="small text-muted"><? the_time('Y年m月d日H時'); ?></div>
+                            <h2 class="card-title"><? the_title(); ?></h2>
+                            <p class="card-text"><? the_excerpt(); ?></p>
+                            <a class="btn btn-primary" href="<?php the_permalink(); ?>">Read more →</a>
 
-                            </div>
+                        </div>
                         </div>
                     <?php endwhile; ?>
                 <?php endif; ?>
