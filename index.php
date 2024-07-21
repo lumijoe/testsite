@@ -33,16 +33,7 @@
             </div>
         </div>
     </nav>
-    <!-- Page header with logo and tagline-->
-    <header class="py-5 bg-light border-bottom mb-4">
-        <div class="container">
-            <div class="text-center my-5">
-                <!-- <h1 class="fw-bolder mb-1">Welcome to Blog Post!</h1> -->
-                <h1 class="fw-bolder mb-1"><?php bloginfo('name'); ?></h1>
-                <p class="lead mb-0"><?php bloginfo('description'); ?></p>
-            </div>
-        </div>
-    </header>
+    <?php get_header(); ?>
     <!-- Page content-->
     <div class="container">
         <div class="row">
@@ -171,12 +162,7 @@
             </div>
         </div>
     </div>
-    <!-- Footer-->
-    <footer class="py-5 bg-dark">
-        <div class="container">
-            <p class="m-0 text-center text-white">Copyright &copy; Your Website 2023</p>
-        </div>
-    </footer>
+    <?php get_footer(); ?>
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Core theme JS-->
