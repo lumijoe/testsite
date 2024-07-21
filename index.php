@@ -39,7 +39,8 @@
                                 <div class="small text-muted"><? the_time('Y年m月d日H時'); ?></div>
                                 <h2 class="card-title"><? the_title(); ?></h2>
                                 <p class="card-text"><? the_excerpt(); ?></p>
-                                <a class="btn btn-primary" href="#!">Read more →</a>
+                                <a class="btn btn-primary" href="<?php the_permalink(); ?>">Read more →</a>
+
                             </div>
                         </div>
                     <?php endwhile; ?>
