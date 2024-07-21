@@ -48,21 +48,24 @@
         <div class="row">
             <!-- Blog entries-->
             <div class="col-lg-8">
-                <?php while (have_posts()) : // 投稿がある限り繰り返す 
+                <?php if (have_posts()) : // whileの前のif文作法
                 ?>
-                    <?php the_post(); // 次の投稿に進める 
+                    <?php while (have_posts()) : // 投稿がある限り繰り返す 
                     ?>
-                    <!-- Featured blog post-->
-                    <div class="card mb-4">
-                        <a href="#!"><img class="card-img-top" src="<?php echo esc_url(get_theme_file_uri('screenshot.png')); ?>" alt="..." /></a>
-                        <div class="card-body">
-                            <div class="small text-muted"><? the_time('Y年m月d日H時'); ?></div>
-                            <h2 class="card-title"><? the_title(); ?></h2>
-                            <p class="card-text"><? the_excerpt(); ?></p>
-                            <a class="btn btn-primary" href="#!">Read more →</a>
+                        <?php the_post(); // 次の投稿に進める 
+                        ?>
+                        <!-- Featured blog post-->
+                        <div class="card mb-4">
+                            <a href="#!"><img class="card-img-top" src="<?php echo esc_url(get_theme_file_uri('screenshot.png')); ?>" alt="..." /></a>
+                            <div class="card-body">
+                                <div class="small text-muted"><? the_time('Y年m月d日H時'); ?></div>
+                                <h2 class="card-title"><? the_title(); ?></h2>
+                                <p class="card-text"><? the_excerpt(); ?></p>
+                                <a class="btn btn-primary" href="#!">Read more →</a>
+                            </div>
                         </div>
-                    </div>
-                <?php endwhile; ?>
+                    <?php endwhile; ?>
+                <?php endif; ?>
 
                 <!-- Nested row for non-featured blog posts-->
                 <!-- <div class="row">
@@ -114,7 +117,7 @@
                 <!-- Pagination-->
                 <nav aria-label="Pagination">
                     <hr class="my-0" />
-                    <ul class="pagination justify-content-center my-4">
+                    <!-- <ul class="pagination justify-content-center my-4">
                         <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1" aria-disabled="true">Newer</a></li>
                         <li class="page-item active" aria-current="page"><a class="page-link" href="#!">1</a></li>
                         <li class="page-item"><a class="page-link" href="#!">2</a></li>
@@ -122,7 +125,8 @@
                         <li class="page-item disabled"><a class="page-link" href="#!">...</a></li>
                         <li class="page-item"><a class="page-link" href="#!">15</a></li>
                         <li class="page-item"><a class="page-link" href="#!">Older</a></li>
-                    </ul>
+                    </ul> -->
+                    <?php the_posts_pagination(); ?>
                 </nav>
             </div>
             <!-- Side widgets-->
